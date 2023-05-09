@@ -28,10 +28,44 @@
     <ul class="menu-list">
         <li v-for="data in menuData" class="main-menu" :key="data.name">
             <img :src="data.src" alt=" ">
-            <span>{{ data.name }}</span>
+            <span class="menu-text">{{ data.name }}</span>
         </li>
     </ul>
 </div>
+<div class="block-content"></div>
+<div class="data-content">
+    <div class="data-side-text">
+        <span class="left-text">附近店铺</span>
+        <span class="right-text">查看更多</span>
+    </div>
+    <div class="main-data">
+        <ul style="list-style: none">
+            <li class="shop" v-for="info in shopInfo" :key="info.id">
+                <img class="shop-icon" :src="info.shopIcon" alt=""/>
+                <div class="shop-info">
+                    <p class="shop-name">{{info.shopName}}</p>
+                    <p class="base-info">
+                        <span class="sale-count">
+                            月售:{{info.saleCount}}
+                        </span>
+                        <span class="lowest-deliver-price">
+                            起送:{{info.lowestDeliverPrice}}
+                        </span>
+                        <span class="normal-deliver-price">
+                            基础运费: {{info.normalDeliverPrice}}
+                        </span>
+                    </p>
+                    <p class="discount-info">
+                        {{info.discountInfo}}
+                    </p>
+                </div>
+            </li>
+
+            </li>
+        </ul>
+    </div>
+</div>
+<div></div>
 
 </template>
 
@@ -83,6 +117,18 @@ export default {
                     src: "/mark/assets/red.png"
                 },
                 
+            ],
+            shopInfo: [
+
+                {
+                    shopName:"沃尔玛",
+                    shopIcon: "/mark/assets/位图.png",
+                    saleCount: 10000,
+                    lowestDeliverPrice: 0,
+                    normalDeliverPrice: 5,
+                    discountInfo: "Test",
+                },
+
             ],
         }
     }
@@ -163,10 +209,45 @@ export default {
     list-style: none;
 }
 .main-menu {
-    width: 20%;
-    height: 100px;
+    width: 18%;
+    height: 120px;
     display: inline-block;
-    border: 2px solid red;
-    margin: 20px;
+    margin: 5px;
+    margin-top: 30px;
+    text-align: center;
 }
+.menu-text {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #20364B;
+    letter-spacing: 0;
+    text-align: center;
+    display: block;
+}
+.block-content {
+    width: 750px;
+    height: 20px;
+    background-color: #F1F1F1;
+}
+.left-text {
+    float: left;
+    font-family: PingFangSC-Regular;
+    font-size: 29px;
+    color: #20364B;
+    letter-spacing: -0.7px;
+}
+.right-text {
+    float: right;
+    font-family: PingFangSC-Regular;
+    font-size: 29px;
+    color: #20364B;
+    letter-spacing: -0.7px;
+}
+
+.data-side-text {
+    width: 680px;
+    margin-left: 35.5px;
+    margin-top: 25px;
+}
+
 </style>

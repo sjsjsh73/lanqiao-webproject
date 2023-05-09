@@ -8,12 +8,11 @@
         <img id="notice-icon" src="mark/assets/消息.png" alt=" "/>
     </div>
     <div class="search-content">
-        <input 
-        type="search" 
+        <input type="search" 
         name="search-box" 
-        id="search-box"
+        id="search-box" 
         placeholder="永辉超市优惠商品"
-        >
+        />
     </div>
 </div>
 </template>
@@ -40,5 +39,9 @@ export default {
     font-size: 31px;
     color: #FFFFFF;
     letter-spacing: 1.15px;
+}
+#search-box {
+    background: #FFFFFF;
+    border-radius: 34.5px;
 }
 </style>

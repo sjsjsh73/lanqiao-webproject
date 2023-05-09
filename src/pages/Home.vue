@@ -26,7 +26,10 @@
 </div>
 <div class="menu-content">
     <ul class="menu-list">
-        <li></li>
+        <li v-for="data in menuData" class="main-menu" :key="data.name">
+            <img :src="data.src" alt=" ">
+            <span>{{ data.name }}</span>
+        </li>
     </ul>
 </div>
 
@@ -36,6 +39,53 @@
 
 export default {
     name: "Home",
+    data(){
+        return {
+            menuData: [
+                {
+                    name: "超市便利",
+                    src: "/mark/assets/super.png"
+                },
+                {
+                    name: "菜市场",
+                    src: "/mark/assets/market.png"
+                },
+                {
+                    name: "水果店",
+                    src: "/mark/assets/fruits.png"
+                },
+                {
+                    name: "鲜花绿植",
+                    src: "/mark/assets/flower.png"
+                },
+                {
+                    name: "医药健康",
+                    src: "/mark/assets/drug.png"
+                },
+                {
+                    name: "家居时尚",
+                    src: "/mark/assets/home.png"
+                },
+                {
+                    name: "烘焙蛋糕",
+                    src: "/mark/assets/cake.png"
+                },
+                {
+                    name: "签到",
+                    src: "/mark/assets/sign.png"
+                },
+                {
+                    name: "大牌免运",
+                    src: "/mark/assets/prestige.png"
+                },
+                {
+                    name: "红包套餐",
+                    src: "/mark/assets/red.png"
+                },
+                
+            ],
+        }
+    }
 }
 </script>
 <style>
@@ -108,5 +158,15 @@ export default {
         #FFFFFF 100%);
     width: 750px;
     height: 334px;
+}
+.menu-list {
+    list-style: none;
+}
+.main-menu {
+    width: 20%;
+    height: 100px;
+    display: inline-block;
+    border: 2px solid red;
+    margin: 20px;
 }
 </style>

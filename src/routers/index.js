@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory} from "vue-router"
 
+const Home = () => import("@/pages/Home");
 
 const routes = [
     {
         path: '/',
         name: "Home",
-        meta:{
+        mate:{
             title: "Home",
         },
         component: Home,
@@ -18,3 +19,5 @@ const router = createRouter(
         routes: routes,
     }
 )
+
+export default router;

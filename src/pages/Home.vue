@@ -81,8 +81,10 @@
 </template>
 
 <script>
-
+import { getCurrentInstance  } from 'vue'
+const { ctx } = getCurrentInstance()
 export default {
+    
     name: "Home",
     data(){
         return {
@@ -129,17 +131,21 @@ export default {
                 },
                 
             ],
-            shopInfo:this.getShopData()
+            shopInfo: this.getShopData(null, this.getShopDataCallBack)
         }
     },
     methods: {
-        getShopData(){
+        getShopData(args, callback){
+            console.log(args)
             let SHOP_DATA_URL = "https://labfile.oss.aliyuncs.com/courses/9617/hotList.json"
-            this.axios.get(SHOP_DATA_URL)
+             ctx.$axios.get(SHOP_DATA_URL)
             .then((res) => {
-                console.log(res.data);
+                callback(res.data)
             });
             
+        },
+        getShopDataCallBack(datas) {
+                return datas.data;
         }
     },
     beforeMount(){

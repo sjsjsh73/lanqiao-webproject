@@ -41,26 +41,26 @@
     <div class="main-data">
         <ul style="list-style: none">
             <li class="shop" v-for="info in shopInfo" :key="info.id">
-                <img class="shop-icon" :src="info.shopIcon" alt=""/>
+                <img class="shop-icon" :src="info.imgUrl" alt=""/>
                 <div class="shop-info">
                     <p class="shop-name">
-                        {{info.shopName}}
+                        {{info.name}}
                     </p>
                     <br/>
                     <p class="base-info">
                         <span class="sale-count">
-                            月售:{{info.saleCount}}
+                            月售:{{info.sales}}
                         </span>
                         <span class="lowest-deliver-price">
-                            起送:{{info.lowestDeliverPrice}}
+                            起送:{{info.expressLimit}}
                         </span>
                         <span class="normal-deliver-price">
-                            基础运费: {{info.normalDeliverPrice}}
+                            基础运费: {{info.expressPrice}}
                         </span>
                     </p>
                     <br>
                     <p class="discount-info">
-                        {{info.discountInfo}}
+                        {{info.slogan}}
                     </p>
                 </div>
             </li>
@@ -129,27 +129,21 @@ export default {
                 },
                 
             ],
-            shopInfo: [
-
-                {
-                    shopName:"沃尔玛",
-                    shopIcon: "/mark/assets/位图.png",
-                    saleCount: 10000,
-                    lowestDeliverPrice: 0,
-                    normalDeliverPrice: 5,
-                    discountInfo: "VIP尊享满89元件减4元运费券",
-                },
-                {
-                    shopName:"永辉超市",
-                    shopIcon: "/mark/assets/位图备份.png",
-                    saleCount: 2000,
-                    lowestDeliverPrice: 0,
-                    normalDeliverPrice: 5,
-                    discountInfo: "联合利华洗护满10减5",
-                },
-
-            ],
+            shopInfo:this.getShopData()
         }
+    },
+    methods: {
+        getShopData(){
+            let SHOP_DATA_URL = "https://labfile.oss.aliyuncs.com/courses/9617/hotList.json"
+            this.axios.get(SHOP_DATA_URL)
+            .then((res) => {
+                console.log(res.data);
+            });
+            
+        }
+    },
+    beforeMount(){
+        this.getShopData()
     }
 }
 </script>

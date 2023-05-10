@@ -43,7 +43,10 @@
             <li class="shop" v-for="info in shopInfo" :key="info.id">
                 <img class="shop-icon" :src="info.shopIcon" alt=""/>
                 <div class="shop-info">
-                    <p class="shop-name">{{info.shopName}}</p>
+                    <p class="shop-name">
+                        {{info.shopName}}
+                    </p>
+                    <br/>
                     <p class="base-info">
                         <span class="sale-count">
                             月售:{{info.saleCount}}
@@ -55,17 +58,25 @@
                             基础运费: {{info.normalDeliverPrice}}
                         </span>
                     </p>
+                    <br>
                     <p class="discount-info">
                         {{info.discountInfo}}
                     </p>
                 </div>
             </li>
-
-            </li>
         </ul>
     </div>
 </div>
-<div></div>
+
+<div class="function-menu-content">
+    <ul style="list-style: none;">
+        <li class="function-menu"><img class="function-menu-icon" src="mark/assets/首页.png" alt=""><span class="function-menu-text">首页</span></li>
+        <li class="function-menu"><img class="function-menu-icon" src="mark/assets/cart_empty.png" alt=""><span class="function-menu-text">购物车</span></li>
+        <li class="function-menu"><img class="function-menu-icon" src="mark/assets/order.png" alt=""><span class="function-menu-text">订单</span></li>
+        <li class="function-menu"><img class="function-menu-icon" src="mark/assets/My.png" alt=""><span class="function-menu-text">我的</span></li>
+    </ul>
+</div>
+<dir></dir>
 
 </template>
 
@@ -126,7 +137,15 @@ export default {
                     saleCount: 10000,
                     lowestDeliverPrice: 0,
                     normalDeliverPrice: 5,
-                    discountInfo: "Test",
+                    discountInfo: "VIP尊享满89元件减4元运费券",
+                },
+                {
+                    shopName:"永辉超市",
+                    shopIcon: "/mark/assets/位图备份.png",
+                    saleCount: 2000,
+                    lowestDeliverPrice: 0,
+                    normalDeliverPrice: 5,
+                    discountInfo: "联合利华洗护满10减5",
                 },
 
             ],
@@ -147,7 +166,7 @@ export default {
 .location-content {
     margin-left: 36px;
     margin-top: 33px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 300px;
     height: 42px;
     display: inline-block;
@@ -168,7 +187,7 @@ export default {
 .notice-content {
     height: 42px;
     width: 42px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: inline-block;
     margin-left: 337px;
 }
@@ -176,7 +195,7 @@ export default {
     margin-top: 37px;
     height: 69px;
     width: 680px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     text-align: center;
     margin-left: 36px;
 }
@@ -245,9 +264,78 @@ export default {
 }
 
 .data-side-text {
+    overflow: auto;
     width: 680px;
     margin-left: 35.5px;
     margin-top: 25px;
+    margin-bottom: 25px;
+    /* border: 2px solid red; */
+
+}
+.shop {
+    width: 750px;
+    height: 198px;
+    border-top: 2px solid rgba(241,241,241,1);
+    border-bottom: 2px solid rgba(241,241,241,1);
+}
+.shop-icon {
+    margin-top: 25px;
+    margin-left: 36px;
+    display: inline-block;
+}
+.shop-info {
+    height: 150px;
+    width: 425px;
+    margin-left: 32px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    display: inline-block;
+}
+.shop-name {
+    font-family: PingFangSC-Regular;
+    font-size: 32px;
+    color: #20364B;
+    letter-spacing: -0.77px;
+}
+.base-info {
+    font-family: PingFangSC-Regular;
+    font-size: 26px;
+    color: #20364B;
+    letter-spacing: -0.1px;
+}
+.discount-info {
+    font-family: PingFangSC-Regular;
+    font-size: 26px;
+    color: #E27475;
+    letter-spacing: 0;
+}
+
+.function-menu-content {
+    height: 100px;
+    width: 750px;
+}
+
+.function-menu-text {
+    font-family: PingFangSC-Regular;
+    font-size: 23px;
+    color: #353535;
+    letter-spacing: 0;
+    text-align: center;
+    display: block;
+}
+.function-menu-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.function-menu {
+    width: auto;
+    height: auto;
+    float: left;
+    margin-left: 15% ;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    
 }
 
 </style>

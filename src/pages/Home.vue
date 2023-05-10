@@ -81,8 +81,6 @@
 </template>
 
 <script>
-import { getCurrentInstance  } from 'vue'
-const { ctx } = getCurrentInstance()
 export default {
     
     name: "Home",
@@ -131,24 +129,22 @@ export default {
                 },
                 
             ],
-            shopInfo: this.getShopData(null, this.getShopDataCallBack)
+            shopInfo: [],
         }
     },
     methods: {
-        getShopData(args, callback){
-            console.log(args)
+        getShopData(){
             let SHOP_DATA_URL = "https://labfile.oss.aliyuncs.com/courses/9617/hotList.json"
-             ctx.$axios.get(SHOP_DATA_URL)
+             this.axios.get(SHOP_DATA_URL)
             .then((res) => {
-                callback(res.data)
+                this.shopInfo = res.data.data;
+                console.log(this.shopInfo)
             });
             
         },
-        getShopDataCallBack(datas) {
-                return datas.data;
-        }
+
     },
-    beforeMount(){
+    mounted(){
         this.getShopData()
     }
 }
@@ -281,7 +277,10 @@ export default {
 .shop-icon {
     margin-top: 25px;
     margin-left: 36px;
+    width: 112px;
+    height: 112px;
     display: inline-block;
+    border-radius: 50%;
 }
 .shop-info {
     height: 150px;

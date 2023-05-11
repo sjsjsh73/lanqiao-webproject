@@ -2,7 +2,7 @@
 <div class="main-data">
         <ul style="list-style: none">
             <li class="shop" v-for="info in shopInfo" :key="info.id">
-                <router-link :to="{name: 'Detail', params: {id: info.id, shopInfo: info} }">
+                <router-link :to="'/shop/' + info.id">
                     <img class="shop-icon" :src="info.imgUrl" alt=""/>
                     <div class="shop-info">
                         <p class="shop-name">

@@ -13,7 +13,7 @@ const routes = [
         component: Home,
     },
     {
-        path: '/shop/:id',
+        path: '/shop',
         name: "Detail",
         mate: {
             title: "Detail",
